@@ -1,0 +1,19 @@
+{
+  "name": "astapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rileyjgr/astapi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rileyjgr/astapi/issues"
+  },
+  "homepage": "https://github.com/rileyjgr/astapi#readme"
+}

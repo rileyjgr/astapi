@@ -9,6 +9,7 @@ module.exports = {
         app.use(bodyParser.json());
         app.get('/api', controllers.api);
         app.post('/api', validateBody(schemas.ast), controllers.update);
+        app.get('/api/:name', controllers.apiParms);
+        app.post('/api/:name', validateBody(schemas.ast), controllers.algorithm);
     }
-
 };

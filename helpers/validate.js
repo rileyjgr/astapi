@@ -26,7 +26,7 @@ module.exports = {
             mass: Joi.number().required(),
             v_imp: Joi.number().required(),
             energy: Joi.number().required(),
-            blastRadius: Joi.number()
+            blastRadius: Joi.number().required()
         })
     }
 };

@@ -7,10 +7,10 @@ module.exports = {
 
     api: async(req, res, next)=>{
         await Ast.find({}, function(err, asts){
-            let api = {};
+            let api = [];
 
             asts.forEach(function(ast){
-                api[ast.name] = ast;
+                api.push(ast);
             });
             res.send(api);
         });
@@ -22,6 +22,7 @@ module.exports = {
         const name = req.params;
 
         await Ast.findOne(name, "-ast", function(err, resp){
+            
             res.send(resp);
         });
 

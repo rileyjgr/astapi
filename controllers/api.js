@@ -1,5 +1,7 @@
 const Ast = require('../models/ast');
 const api = require('../algorithm/algorithm');
+const fireballAlgorithm = require('../algorithm/fireballAlgorithm');
+const richterAlgorithm = require('../algorithm/richterAlgorithm');
 
 module.exports = {
 
@@ -31,10 +33,12 @@ module.exports = {
         console.log(req);
         const {name, ip, diameter, mass, v_imp, energy} = req.body;
         const blastRadius = await api(mass, diameter, v_imp);
-
+        const fireball = await fireballAlgorithm(energy);
+        const richterScale = await richterAlgorithm(energy);
+        console.log(fireball);
         console.log(blastRadius);
         const sendData = () =>{
-            const newAst = new Ast({name, ip, diameter, mass, v_imp, energy, blastRadius});
+            const newAst = new Ast({name, ip, diameter, mass, v_imp, energy, blastRadius, fireball, richterScale});
             newAst.save();
             return res.json({ast: 'saved'});
         };

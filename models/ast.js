@@ -8,7 +8,9 @@ const astSchema = new Schema({
     mass: Number,
     v_imp: Number,
     energy: Number,
-    blastRadius: Number
+    blastRadius: Number,
+    fireball: Number,
+    richterScale: Number
 });
 
 const Ast = mongoose.model('ast', astSchema);

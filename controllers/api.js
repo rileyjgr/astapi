@@ -1,4 +1,3 @@
-const apiList = require('../api/api');
 const Ast = require('../models/ast');
 
 module.exports = {
@@ -16,8 +15,8 @@ module.exports = {
     update: async(req, res, next)=>{
         // Get data from algorithm and save it to db
         console.log(req);
-        const {name, vel, mass, radius} = req.value.body;
-        const newAst = new Ast({name, vel, mass, radius});
+        const {name, ip, diameter, mass, v_imp, energy} = req.value.body;
+        const newAst = new Ast({name, ip, diameter, mass, v_imp, energy});
         await newAst.save();
         res.json({ast: 'saved'});
         next();

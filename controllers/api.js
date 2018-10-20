@@ -1,6 +1,7 @@
 const Ast = require('../models/ast');
 
 module.exports = {
+
     api: async(req, res, next)=>{
         await Ast.find({}, function(err, asts){
             let api = {};
@@ -12,19 +13,18 @@ module.exports = {
         });
         next();
     },
+
     apiParms: async(req,res,next)=>{
         console.log(req.params);
         const name = req.params;
 
-        const data = await Ast.findOne(name, "-ast", function(err, resp){
-            if(err){
-                console.log(err);
-            } else {
-                res.send(resp);
-            }
+        await Ast.findOne(name, "-ast", function(err, resp){
+            res.send(resp);
         });
+
         next();
     },
+
     update: async(req, res, next)=>{
         // Get data from algorithm and save it to db
         console.log(req);
@@ -34,6 +34,7 @@ module.exports = {
         res.json({ast: 'saved'});
         next();
     },
+
     algorithm: async(req, res)=>{
         const name = req.name;
         await Ast.find({name}, function(err, ast){

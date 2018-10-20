@@ -3,9 +3,12 @@ const Schema = mongoose.Schema;
 
 const astSchema = new Schema({
     name: String,
-    vel: String,
-    mass: String,
-    radius: String
+    ip: Number,
+    diameter: Number,
+    mass: Number,
+    v_imp: Number,
+    energy: Number,
+    blastRadius: Number
 });
 
 const Ast = mongoose.model('ast', astSchema);

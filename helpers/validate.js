@@ -21,9 +21,12 @@ module.exports = {
     schemas: {
         ast: Joi.object().keys({
             name: Joi.string().required(),
-            vel: Joi.string().required(),
-            mass: Joi.string().required(),
-            radius: Joi.string().required()
+            ip: Joi.number().required(),
+            diameter: Joi.number().required(),
+            mass: Joi.number().required(),
+            v_imp: Joi.number().required(),
+            energy: Joi.number().required(),
+            blastRadius: Joi.number()
         })
     }
 };

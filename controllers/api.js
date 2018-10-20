@@ -2,15 +2,16 @@ const apiList = require('../api/api');
 const Ast = require('../models/ast');
 
 module.exports = {
-    api: async(req, res)=>{
+    api: async(req, res, next)=>{
+        await Ast.find({}, function(err, asts){
+            let api = {};
 
-        await Ast.find({}), function(err, ast){
-            if(err){
-                console.log(err);
-            } else {
-                return res.json(ast);
-            }
-        }
+            asts.forEach(function(ast){
+                api[ast.name] = ast;
+            });
+           res.send(api);
+        });
+        next();
     },
     update: async(req, res, next)=>{
         // Get data from algorithm and save it to db

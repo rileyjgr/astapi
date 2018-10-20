@@ -65,8 +65,21 @@ module.exports = {
                 return 1.25*crater
               }
               const meteorDensity = densityCalculation(name.mass, name.diameter)
-              const transientCrater = transientCraterFunction(meteorDensity, name.Diameter, name.v_imp)
+              const transientCrater = transientCraterFunction(meteorDensity, name.diameter, name.v_imp)
               return finalCrater(transientCrater)
+
+              const megatonsToJoules = (megatons) => {
+                const joules = megatons*(4.184*10**15)
+                return joules
+              }
+              
+              const fireball = (megatons) => {
+                const joules = megatonsToJoules(megatons)
+                const fireballRadius = .002*(joules**(1/3))
+                return fireballRadius
+              }
+
+              const fireballRadius = fireball(name.energy)
 
             ast.update({name, radius})
         })

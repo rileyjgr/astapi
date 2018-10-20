@@ -81,6 +81,14 @@ module.exports = {
 
               const fireballRadius = fireball(name.energy)
 
+              const richter = (megatons) => {
+                const joules = megatonsToJoules(megatons)
+                const M = 0.67*Math.log10(joules)-5.87
+                return M
+              }
+
+              const richterScale = richter(name.energy)
+
             ast.update({name, radius})
         })
     }

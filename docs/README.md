@@ -1,15 +1,31 @@
-#Asteriod Data Api, and algorithm middleware 
+## Asteriod Data Api, and middleware 
+To use our middle ware for creating blastradius, fireball, or richterscale.
+```
+const api = require('../algorithm/algorithm'); // blast radius
+const fireballAlgorithm = require('../algorithm/fireballAlgorithm');
+const richterAlgorithm = require('../algorithm/richterAlgorithm');
+```
+Please note. This might change when this becomes an nmp package. 
 
-##Team: <br>
-T.E.A.M. (Tracking Extraterrestrial Astriods & Meteors) <br>
-##Members: <br>
-Michael, Riley, Nestor, Silu, Gigi, Ayisha** <br>
-<br>
+```
+// inside async function
+        const blastRadius = await api(mass, diameter, v_imp);
+        const fireball = await fireballAlgorithm(energy);
+        const richterScale = await richterAlgorithm(energy);
+```
+
+Where `mass`= Your objects mass,
+      `diameter`= ,
+      `v_imp` = velocity at impact,
+      `energy = Megatons of TNT.
+
 ## Backend Overview: 
 
-The backend provides three middleware functions to create object schemas onto our mongoDb.
-You are able to search for various asteriods using the search bar. 
+Currently: MongoDb, Express
 
-### Presentation: 
+## Future Plans.
 
-https://docs.google.com/presentation/d/1P2Ok4H9Jm12yalylWDSZed-560_Rl5uLkc5jzpWjUSY/edit?usp=sharing
+- Format data into3d rendered image in user brower. 
+- Allow the user to change the planet the asteriod hits.
+- 3D asteriods defense game, using Jpl NEO data.
+- Show effects on planet earth over the course of many asteriod collisions. 

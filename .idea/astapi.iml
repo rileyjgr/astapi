@@ -16,5 +16,8 @@
     <orderEntry type="library" name="materialize" level="application" />
     <orderEntry type="library" name="parallax" level="application" />
     <orderEntry type="library" name="three" level="application" />
+    <orderEntry type="library" name="@types/p5" level="application" />
+    <orderEntry type="library" name="p5" level="application" />
+    <orderEntry type="library" name="p5.dom" level="application" />
   </component>
 </module>

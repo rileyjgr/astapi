@@ -48,7 +48,7 @@ class HomePage extends Component {
                             <p className="mx-auto my-0">Fireball: {fireball}</p>
                             <p className="mx-auto my-0">Richter Scale: {richterScale}</p>
                         </ul>
-                        <a href="" className="btn btn-primary js-scroll-trigger">Jump into the docs!</a>
+                        <a href="https://rileyjgr.github.io/astapi/" className="btn btn-primary js-scroll-trigger">Jump into the docs!</a>
                     </div>
                 </div>
             </header>

@@ -11,6 +11,10 @@ module.exports = {
         app.get('/api', controllers.api);
         app.post('/api', controllers.update);
         app.get('/api/:name', controllers.apiParms);
+        app.use(express.static(`${__dirname}/../../dist`));
+        app.get('/', (req, res)=>{
+            res.sendFile(path.join(`${__dirname}/../../dist/index.html`));
+        })
         // app.get('/algorithm/:name', validateBody(schemas.ast), controllers.algorithm);
     }
 };

@@ -24,6 +24,8 @@ const PORT = process.env.PORT || 3000;
 db.on("error", console.error.bind(console, "connection error:"));
 
 db.once('open', function() {
+
+
     app.use(cors());
     routes.api(app);
 

@@ -21,8 +21,8 @@ module.exports = {
         console.log(req.params);
         const name = req.params;
 
+
         await Ast.findOne(name, "-ast", function(err, resp){
-            
             res.send(resp);
         });
 

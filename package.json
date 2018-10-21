@@ -2,27 +2,55 @@
   "name": "astapi",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server/server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "dev": "webpack -d --watch",
+    "start": "concurrently \"nodemon src/server/server.js\" \"webpack -d --watch\"",
+    "build": "webpack -p",
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon src/server/server.js",
+    "postinstall": "webpack",
+    "heroku-postbuild": "webpack -p"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rileyjgr/astapi.git"
   },
-  "author": "",
+  "author": "Riley Griffin",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rileyjgr/astapi/issues"
   },
   "homepage": "https://github.com/rileyjgr/astapi#readme",
   "dependencies": {
+    "@babel/cli": "^7.0.0-beta.40",
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "axios": "^0.18.0",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-plugin-lodash": "^3.3.2",
+    "babel-plugin-react-transform": "^3.0.0",
+    "body-parser": "latest",
+    "concurrently": "^4.0.1",
     "cors": "^2.8.4",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
+    "extract-text-webpack-plugin": "^3.0.2",
     "joi": "^14.0.0",
     "mongoose": "^5.3.4",
+    "nodemailer": "^4.6.8",
     "nodemon": "^1.18.4",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "webpack": "^4.20.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "webpack-cli": "^3.1.2"
   }
 }

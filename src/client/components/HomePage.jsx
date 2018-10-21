@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import * as THREE from 'three';
+
 import axios from 'axios';
 //https://ssd-api.jpl.nasa.gov/sentry.api?all=1&ip-min=1e-3
 class HomePage extends Component {
@@ -27,12 +29,61 @@ class HomePage extends Component {
     render() {
         const state = this.state;
         const name = state.des;
+        const diameter = state.diameter;
         const energy = state.energy;
         const mass = state.mass;
         const vel = state.v_imp;
         const blastRadius = state.blastRadius;
         const fireball =state.fireball;
         const richterScale = state.richterScale;
+
+        // beinginning of
+        // threejs code to render 3d model of asteroid
+        let camera, scene, renderer;
+        let geometry, material, mesh, texture;
+
+        init();
+        animate();
+
+        function init() {
+
+            camera = new THREE.PerspectiveCamera( 200, window.innerWidth / window.innerHeight, 0.01, 10 );
+            camera.position.z = 1;
+
+            scene = new THREE.Scene();
+            const lenght = mass / 3;
+            const width = mass / 3;
+            const height = mass / 3;
+
+
+            geometry = new THREE.BoxGeometry(lenght. width, height);
+            material = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+
+            mesh = new THREE.Mesh( geometry, material );
+
+            scene.add( mesh );
+
+
+            renderer = new THREE.WebGLRenderer( { antialias: true } );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            document.body.appendChild( renderer.domElement );
+
+        }
+
+        function animate() {
+
+            requestAnimationFrame( animate );
+
+            mesh.rotation.x += 0.01;
+            mesh.rotation.y += 0.02;
+            texture = new THREE.TextureLoader().load( "textures/bg.gif" );
+
+            texture.wrapS = THREE.RepeatWrapping;
+            texture.wrapT = THREE.RepeatWrapping;
+            texture.repeat.set( 4, 4 );
+            renderer.render( scene, camera );
+
+        }
         return (
         <div>
             <header className="masthead">
@@ -58,7 +109,9 @@ class HomePage extends Component {
                 <a href="https://github.com/rileyjgr/astapi">Backend Github Repo</a>
                 <p>Created by Riley Griffin</p>
             </div>
-
+            <div id="webGl">
+                <p>Below will be a Three.js/WebGl, animation to simulate impact in a 3d setting.</p>
+            </div>
         </div>
         )
     }

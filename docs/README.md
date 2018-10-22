@@ -25,7 +25,7 @@ Currently: MongoDb, Express
 
 ## Future Plans.
 
-- Format data into3d rendered image in user brower. 
+- Format data into VR simulation in user browers. 
 - Allow the user to change the planet the asteriod hits.
 - 3D asteriods defense game, using Jpl NEO data.
 - Show effects on planet earth over the course of many asteriod collisions. 
